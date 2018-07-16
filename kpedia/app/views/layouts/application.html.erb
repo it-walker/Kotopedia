@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to image_tag("logo.png", class: 'logo'), root_path %>
+      
+      <%= yield %>
+
+      <%= link_to "Home", words_path %>
+    </div>
   </body>
 </html>

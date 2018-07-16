@@ -1,0 +1,18 @@
+<h2>
+<%= link_to 'Add_New', new_word_path, class: 'header-menu' %>
+ことぺでぃあ
+</h2>
+
+<ul>
+<% @words.each do |word| %>
+<li>
+<%= link_to word.title, word_path(word.id) %>
+<%= link_to '[Edit]', edit_word_path(word), class: "command" %>
+<%= link_to '[x]', 
+  word_path(word), 
+  method: :delete, 
+  class: "command", 
+  data: { confirm: 'Sure?' } %>
+</li>
+<% end %>
+</ul>

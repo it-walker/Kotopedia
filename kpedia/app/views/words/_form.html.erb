@@ -1,0 +1,10 @@
+
+<%= form_for @word, url: word_path(@word) do |f| %>
+<p>
+    <%= f.text_field :title, placeholder: 'enter title' %>
+    <% if @word.errors.messages[:title].any? %>
+    <span class="error"><%= @word.errors.messages[:title][0] %></span>
+    <% end %>
+    <%= f.submit %>
+</p>
+<% end %>
