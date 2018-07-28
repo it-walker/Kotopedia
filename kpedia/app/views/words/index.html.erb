@@ -1,18 +1,20 @@
 <h2>
-<%= link_to 'Add_New', new_word_path, class: 'header-menu' %>
-ことぺでぃあ
+<%= link_to "新規作成", new_word_path, class: "header-menu btn btn-outline-success my-2 my-sm-0" %>
 </h2>
 
-<ul>
+
+<div class="card-columns">
 <% @words.each do |word| %>
-<li>
-<%= link_to word.title, word_path(word.id) %>
-<%= link_to '[Edit]', edit_word_path(word), class: "command" %>
-<%= link_to '[x]', 
-  word_path(word), 
-  method: :delete, 
-  class: "command", 
-  data: { confirm: 'Sure?' } %>
-</li>
+  <div class="card">
+    <%= link_to image_tag("logo.png", class: "card-img-top"), word_path(word.id) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to word.title, word_path(word.id) %></h5>
+      <p class="card-text"><small class="text-muted">最終更新日時：<%= word.updated_at %></small></p>
+    </div>
+    <div class="card-body text-right">
+      <%= link_to "編集", edit_word_path(word), class: "command btn btn-outline-success my-2 my-sm-0" %>
+      <%= link_to "削除", word_path(word), method: :delete, class: "command btn btn-outline-success my-2 my-sm-0", data: { confirm: 'Sure?' } %>
+    </div>
+  </div>
 <% end %>
-</ul>
+</div>

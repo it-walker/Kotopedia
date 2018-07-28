@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Kpedia</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Kpedia</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <div class="container">
-      <%= link_to image_tag("logo.png", class: 'logo'), root_path %>
-      
-      <%= yield %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <%= link_to "Home", words_path %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Kotopedia</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" disabled>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>検索</button>
+      </form>
     </div>
-  </body>
+  </nav>
+
+  <div class="container">
+
+    <%= yield %>
+
+    <%= link_to "Home", words_path %>
+
+  </div>
+</body>
+
 </html>
