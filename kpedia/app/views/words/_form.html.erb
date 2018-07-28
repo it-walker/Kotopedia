@@ -1,10 +1,14 @@
 
 <%= form_for @word, url: word_path(@word) do |f| %>
-<p>
-    <%= f.text_field :title, placeholder: 'enter title' %>
+<div class="form-group">
+    <%= f.label :title, value="ことば" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "ことばを入力してください。" %>
+    <small class="form-text text-muted" id="kotobaHelp">この項目は必須入力項目です。</small>
     <% if @word.errors.messages[:title].any? %>
-    <span class="error"><%= @word.errors.messages[:title][0] %></span>
+        <span class="error"><%= @word.errors.messages[:title][0] %></span>
     <% end %>
-    <%= f.submit %>
-</p>
+</div>
+<div class="form-group text-center">
+    <%= f.submit(@word.new_record? ? "登録": "保存", :class=>"btn btn-outline-success") %>
+</div>
 <% end %>

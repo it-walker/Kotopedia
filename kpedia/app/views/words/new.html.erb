@@ -1,10 +1,15 @@
-<h2>Add New Word</h2>
+<h2>ことば新規作成画面</h2>
 <%= form_for :word, url: words_path do |f| %>
-<p>
-    <%= f.text_field :title, placeholder: 'enter title' %>
-    <% if @word.errors.messages[:title].any? %>
+<div class="form-group">
+<label for="word_title">ことば</label>
+<input class="form-control" placeholder="登録することばを入力してください。" type="text" name="word[title]" id="word_title">
+<small class="form-text text-muted" id="kotobaHelp">この項目は必須入力項目です。</small>
+<% if @word.errors.messages[:title].any? %>
     <span class="error"><%= @word.errors.messages[:title][0] %></span>
-    <% end %>
-    <%= f.submit %>
-</p>
+<% end %>
+</div>
+<div class="form-group text-center">
+    <%= f.submit(@word.new_record? ? "登録": "保存", :class=>"btn btn-outline-success") %>
+</div>
+
 <% end %>
